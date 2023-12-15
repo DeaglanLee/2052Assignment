@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('../partials/head'); %>
+</head>
+
+<body>
+    <div class="bg-dark">
+        <%- include('../partials/topnavbar'); %>
+    </div>
+    <div id="container" class="mycontainer">
+        <div id="loginbackground">
+            <div class="signin-content">
+                <h3 class="signup-header center">Log In!</h3>
+                <form action="/login" method="POST">
+                    <div class="form-group mt-3">
+                        <label for="exampleInputUsername1">Username</label>
+                        <input type="username" class="form-control" id="exampleInputUsername1" placeholder="Username" name="usernameInput" required>
+                    </div>
+                    <div class="form-group mt-3">
+                        <label for="exampleInputPassword1">Password</label>
+                        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" name="passwordInput" required>
+                    </div>
+                    <div class="form-group form-check mt-2">
+                        <input type="checkbox" class="form-check-input" id="exampleCheck1" name="rememberCheck">
+                        <label class="form-check-label" for="exampleCheck1">Remember me?</label>
+                    </div>
+                    <div class="d-grid gap-2 col-4 mx-auto">
+                        <button class="submit-button mt-3 rounded btn btn-danger" type="submit"
+                            class="btn btn-primary" value="process">Log In!</button>
+                    </div>
+                    <div class="forgot-password fc-white fo mt-2">
+                        <p><a class="link-underline link-underline-opacity-0 text-body custom" href="">Forgot Password?</a></p>
+                    </div>
+                    <div class="center mt-4">
+                        <p> <a class="link-underline link-underline-opacity-0 text-body custom" href="/signup">Don't have an account? Sign Up!</a></p>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

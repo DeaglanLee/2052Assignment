@@ -1,0 +1,299 @@
+.content-container {
+    display: flex;
+}
+
+img {
+    max-width: 550px;
+    object-fit: cover;
+}
+
+#center.center-nav {
+    margin-left: 10rem;
+    overflow: hidden;
+}
+
+#nav-right {
+    justify-content: end;
+}
+
+.end {
+    margin-left: auto;
+}
+
+
+.visibility-changing {
+    display: none;
+}
+
+
+.contentcontainer {
+    margin-left: 25px;
+    margin-right: 25px;
+}
+
+.page-title {
+    margin-left: auto;
+    margin-right: auto;
+
+}
+
+.underline a:hover {
+    border-bottom: 3px solid red;
+    transition: 0.7s;
+}
+
+.nav a {
+    border-bottom: 3px solid transparent;
+}
+
+.navborder {
+    border-bottom: 3px;
+}
+
+.bg-darker {
+    color: #191a1b;
+}
+
+.center {
+    text-align: center;
+}
+
+.center-items{
+    align-items: center;
+}
+
+@media (max-width: 992px) {
+    .end {
+        margin-left: 0;
+    }
+}
+
+body {
+    background-color: #EAEAEA;
+    overflow-x: hidden;
+    background-size: 100vw 100vh;
+}
+
+#loginbackground {
+    display: flex;
+    flex-direction: column;
+    height: 50vh;
+    background: rgb(255, 255, 255);
+    border-radius: 20px;
+    min-width: 373.52px;
+    max-width: 400px;
+}
+
+.signin-content {
+    margin-top: 15px;
+    margin-left: 45px;
+    margin-right: 45px;
+}
+
+.signup-header {
+    margin-bottom: 15px;
+}
+
+.center-button {
+    left: 50%;
+}
+
+.forgot-password {
+    justify-content: end;
+    display: flex;
+    font-size: 14px;
+}
+
+.fc-white {
+    color: rgb(136, 135, 135);
+}
+
+.fo {
+    opacity: 1;
+}
+
+.custom:hover {
+    opacity: 75%;
+}
+
+.mt-1-custom {
+    margin-top: 5px;
+}
+
+.mr-custom {
+    margin-right: 35px;
+}
+
+.navbar-size-y {
+    min-height: 80px;
+    max-height: 220px;
+}
+
+.navbar-content-size-y {
+    min-height: 64px;
+}
+
+.dropdown-item:hover {
+    background-color: black;
+}
+
+.padding {
+    padding: var(--bs-nav-link-padding-y) var(--bs-nav-link-padding-x);
+}
+
+.max-width-15 {
+    max-width: 15px;
+}
+
+.screen {
+    max-width: 100%;
+}
+
+.overflowChange {
+    overflow: hidden;
+}
+
+.sidebar {
+    min-width: 250px;
+    height: 100vh;
+    background-color: #eaeaea;
+    box-sizing: border-box;
+}
+
+.subtitle {
+    border-bottom-width: 1px;
+    border-color: #EAEAEA;
+    margin-bottom: 1rem;
+    border-bottom-style: solid;
+
+}
+
+.box-design {
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(25, 27, 42, 0.05);
+    border-radius: 8px;
+    padding: 16px;
+    margin-bottom: 20px;
+}
+
+.poke-image {
+    height: auto;
+    max-width: 400px;
+    max-height: 300px;
+}
+
+.image-fix {
+    height: fit-content;
+    object-fit: cover;
+}
+
+
+.mycontainer {
+    justify-content: center;
+    display: flex;
+    margin-top: 15vh;
+}
+
+.test{
+    justify-content: center;
+    display: flex;
+    align-items: center;
+}
+
+.new-center{
+    justify-content: center;
+    display: flex;
+}
+
+.newtest{
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    height: 30vh;
+    border: 3px solid green;
+}
+
+.position {
+    display: flex;
+    justify-content: space-between;
+}
+
+.searchbox-size {
+    max-width: 320px;
+}
+
+.search-content {
+    display: flex;
+    justify-content: end;
+}
+
+.sizing {
+    min-width: 270px;
+    /* min-height: 440px; */
+    object-fit: cover;
+    max-width: 270px;
+}
+
+.display{
+    display: inline-block;
+}
+
+.collection-card {
+    position: relative;
+    display: inline-block;
+}
+
+.select-button {
+    background-color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: none;
+    font-size: 16px;
+    transition: background-color 0.5s ease, color 0.5s ease;
+}
+
+.overlay:hover .select-button {
+    background-color: blue;
+    color: white;
+    display: block;
+}
+
+.image {
+    opacity: 1;
+    display: block;
+    width: 100%;
+    height: auto;
+    transition: .5s ease;
+    backface-visibility: hidden;
+}
+
+.overlay {
+    transition: .5s ease;
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.collection-card:hover .image {
+    opacity: 0.5;
+}
+
+.collection-card:hover .overlay {
+    opacity: 1;
+}
+
+.text {
+    background-color: #04AA6D;
+    color: white;
+    font-size: 16px;
+    padding: 16px 32px;
+}

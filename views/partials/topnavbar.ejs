@@ -1,0 +1,41 @@
+<div class="py-2 mb-2 bg-dark text-white navbar-size-y screen">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark px-5 navbar-content-size-y">
+    <div class="container-fluid">
+      <a class="navbar-brand text-white mr-custom" href="/">Trade The Cart</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01"
+        aria-controls="navbarColor01" aria-expanded="true" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse mt-1-custom" id="navbarColor01">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0 ">
+          <li class="nav-item underline nav">
+            <a class="nav-link active text-white px-0 mr-2" aria-current="page" href="/">Home</a>
+          </li>
+          <li class="nav-item underline nav mx-2">
+            <a class="nav-link active text-white px-0 mr-2" aria-current="page" href="/cards">All Cards</a>
+          </li>
+          </li>
+        </ul>
+        <% if (loggedIn) { %>
+          <ul class="navbar-nav end mb-2 mb-lg-0">
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle text-white pl-2" id="navbarDarkDropdownMenuLink" href="#"
+                role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <%= user %>
+              </a>
+              <ul class="dropdown-menu bg-dark max-width" style = "right: 0" aria-labelledby="navbarDarkDropdownMenuLink">
+                <li><a class="dropdown-item text-white" href="/profile/<%= user %>">Dashboard</a></li>
+                <li><a class="dropdown-item text-white" href="/profile/<%= user %>/settings">Settings</a></li>
+                <li><a class="dropdown-item text-white" href="/logout">LogOut</a></li>
+              </ul>
+            </li>
+          </ul>
+          <% } else { %>
+            <li class="nav-item end underline nav">
+              <a class="nav-link text-white px-0" href="/signup">Sign Up/Log In</a>
+            </li>
+            <% } %>
+      </div>
+    </div>
+  </nav>
+</div>

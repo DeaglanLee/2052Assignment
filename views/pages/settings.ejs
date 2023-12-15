@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('../partials/head'); %>
+</head>
+
+<body>
+    <%- include('../partials/topnavbar'); %>
+
+        <div class="mycontainer ">
+            <form action="/profile/<%= pageUser[0].username %>/settings/updateemail" method="POST">
+                <div class="content-container center-items center my-3">
+                    <p class="my-0 center mx-3">Change Email:</p>
+                    <input type="text" value="<%= pageUser[0].email %>" name="changeEmail">
+                    <input type="submit" value="Update">
+                </div>
+            </form>
+        </div>
+        <div class="new-center ">
+            <form action="/profile/<%= pageUser[0].username %>/settings/updateusername" method="POST">
+                <div class="content-container center-items center my-3">
+                    <p class="my-0 center mx-3">Change Username:</p>
+                    <input type="text" value="<%= pageUser[0].username %>" name="changeUsername">
+                    <input type="submit" value="Update">
+                </div>
+            </form>
+        </div>
+        <div class="new-center ">
+            <form action="/profile/<%= pageUser[0].username %>/settings/updatepassword" method="POST">
+                <div class="content-container center-items center my-3">
+                    <p class="my-0 center mx-3">Change Password:</p>
+                    <input type="password" value="" placeholder="Password" name="changePassword">
+                    <input type="submit" value="Update">
+                </div>
+            </form>
+        </div>
+
+        <div class="new-center ">
+            <form action="/profile/<%= pageUser[0].username %>/deleteall" method="POST">
+                <div class="center-items center my-3">
+                    <input type="submit" value="Delete ALL Data">
+                </div>
+            </form>
+        </div>
+
+
+
+</body>

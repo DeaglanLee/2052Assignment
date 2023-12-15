@@ -1,0 +1,140 @@
+<div class="card-content mx-2">
+  <div class="row">
+    <% if(typeof cards !=='undefined' || cards.length !==0 ) { cards.forEach((card)=> { %>
+      <div class="col-sm-3 image-fix sizing item display"
+        data-category="series=<%= card.seriesName %> set=<%= card.setId %>">
+        <div class="mb-3 display">
+          <div class="p-0 display" id="content">
+            <div class="collection-card">
+              <img class="img-fluid image" src="<%= card.lowImage %>" alt="" height="440px" width="320px">
+              <% if (webpage==='collection' && pageUser===user) { %>
+                <div class="overlay">
+                  <form
+                    action="/profile/<%= pageUser %>/collection/<%= cardCollection.collectionId %>/deletecard/<%= card.id %>"
+                    method="POST">
+                    <input type="submit" class="select-button" value="Delete"></a>
+                    <input type="text" hidden value="<%= user %>" name="user">
+                    <input type="text" hidden value="<%= pageUser %>" name="pageUser">
+                  </form>
+                </div>
+                <% } %>
+                  <% if (webpage==='addCard' && pageUser===user) { %>
+                    <div class="overlay">
+                      <form
+                        action="/profile/<%= pageUser %>/collection/<%= cardCollection.collectionId %>/addcard/<%= card.id %>"
+                        method="POST">
+                        <input type="submit" class="select-button" value="Add Card"></a>
+                        <input type="text" hidden value="<%= user %>" name="user">
+                        <input type="text" hidden value="<%= pageUser %>" name="pageUser">
+                      </form>
+                    </div>
+                    <% } %>
+            </div>
+          </div>
+        </div>
+      </div>
+      <% })}; %>
+        <% if (webpage==='collection' && pageUser===user) { %>
+          <div class="col-sm-3 image-fix sizing item display">
+            <div class="mb-3 display">
+              <div class="p-0 display" id="content">
+                <div class="collection-card">
+                  <img class="img-fluid image add-card-img" src="<%= baseUrl %>/img/pokemonBackCard.jpg" alt=""
+                    height="440px" width="320px">
+                  <div class="overlay">
+                    <form action="/profile/<%= pageUser %>/collection/<%= cardCollection.collectionId %>/addcard"
+                      method="GET">
+                      <input type="submit" class="select-button" value="Add Card"></a>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <% } %>
+  </div>
+</div>
+
+<script>
+  
+    let checkboxes = document.querySelectorAll('.filter-checkbox');
+    checkboxes.forEach(function (checkbox) {
+      checkbox.addEventListener('change', function () {
+        filterCards()
+        updateURL();
+      });
+    });
+
+    function filterCards() {
+      let selectedFilters = [];
+      checkboxes.forEach(checkbox => {
+        if (checkbox.checked) {
+          selectedFilters.push(checkbox.getAttribute('data-filter-value'));
+        }
+      });
+
+      let items = document.querySelectorAll('.item');
+
+      items.forEach(function (item) {
+        let itemCategories = item.getAttribute('data-category').split(' ');
+
+        let cardItems = Array.from(itemCategories).map(element => {
+          const [key, value] = element.split('=');
+          return { key, value };
+        });
+        if (selectedFilters.length === 0 || selectedFilters.every(filter => cardItems.some(cardItem => cardItem.value === filter))) {
+          item.style.display = 'inline-block';
+        } else {
+          item.style.display = 'none';
+        }
+      });
+    }
+
+    function updateURL() {
+      let filtersJSON = {
+        "sets": [],
+        "series": []
+      };
+
+      checkboxes.forEach(checkbox => {
+        if (checkbox.checked) {
+          let filterType = checkbox.getAttribute('data-filter-type');
+          let filterValue = checkbox.getAttribute('data-filter-value');
+
+
+          if (filterType === 'set') {
+            filtersJSON.sets.push(filterValue);
+          } else if (filterType === 'series') {
+            filtersJSON.series.push(filterValue);
+          }
+        }
+      });
+      let queryString = ""
+
+      if (filtersJSON.series.length > 0) {
+        if (queryString.length > 0) {
+          queryString += `,series=${filtersJSON.series.join(',')}`;
+        } else {
+          queryString += `series=${filtersJSON.series.join(',')}`;
+        }
+      }
+      if (filtersJSON.sets.length > 0) {
+        if (queryString.length > 0) {
+          queryString += `,sets=${filtersJSON.sets.join(',')}`;
+        } else {
+          queryString += `sets=${filtersJSON.sets.join(',')}`;
+        }
+      }
+      let finalURL = "";
+      if (queryString.length > 0) {
+        finalURL = `?${queryString}`;
+      } else {
+        finaleURL = queryString
+      }
+
+      let stateObject = { filter: filtersJSON };
+      let title = 'Filtered Content';
+
+      history.pushState(stateObject, title, window.location.pathname + finalURL);
+    };
+</script>

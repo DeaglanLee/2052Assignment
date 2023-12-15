@@ -1,0 +1,38 @@
+<div class="sidebar px-3">
+    <div class="box-design">
+        <div>
+            Trade the Cart
+        </div>
+        <div>
+            <h5>Number of Cards</h5>
+            <a>
+                <%= cardNumber %>
+            </a>
+        </div>
+    </div>
+    <div class="border-top border-dark">
+        <h4 class="mt-3 mb-3">Filters</h4>
+      </div>
+      <div class="border-top border-dark-subtle" id="filter-options">
+        <p class="mt-3 mb-3">Series</p>
+        <% if(typeof cards !=='undefined' ) { series.forEach((set)=> { %>
+          <li class="nav">
+            <label>
+              <input type="checkbox" class="filter-checkbox" data-filter-type="series" data-filter-value="<%= set.name %>" name="series" data-value-id="<%= set.name %>">
+              <%= set.name %>
+            </label>
+          </li>
+        <% })}; %>
+      </div>
+      <div class="border-top border-dark-subtle" id="filter-options">
+        <p class="mt-3 mb-3">Sets</p>
+        <% if(typeof cards !=='undefined' ) { sets.forEach((set)=> { %>
+          <li class="nav">
+            <label>
+              <input type="checkbox" class="filter-checkbox" data-filter-type="set" data-filter-value="<%= set.setId %>" name="sets" data-value-id="<%= set.name %>">
+              <%= set.setId %>
+            </label>
+          </li>
+        <% })}; %>
+      </div>
+</div>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('../partials/profileHead'); %>
+</head>
+
+<body>
+    <%- include('../partials/topnavbar'); %>
+
+        <div class="user-profile-title">
+            <div class="test mt-5">
+                <% if (pageUser===user) { %>
+                    <h1>Your Profile</h1>
+                    <% } else { %>
+                        <h1>
+                            <%= pageUser %>'s Profile
+                        </h1>
+                        <% } %>
+            </div>
+
+        </div>
+
+        <div class="content-container mx-5 mt-5 row">
+            <div class="col-sm-2 border">
+                <div class="mb-3">
+                    <div class="p-0">
+                        <h5 class="card-title">
+                            List of Collections
+                        </h5>
+                        <% if (pageUser===user) { %>
+                            <a href="/profile/<%= pageUser %>/collection" class="btn btn-primary">Go somewhere</a>
+                            <% } %>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-1">
+            </div>
+            <% if (cardCollection.length> 0) { %>
+
+                <div class="col-sm-1 border">
+                    <div class="mb-3">
+                        <div class="p-0">
+                            <a href="/profile/<%= pageUser %>/collection/<%= cardCollection[0].collectionId %>" class="btn btn-primary"><%= cardCollection[0].collectionName%></a>
+                        </div>
+                    </div>
+                </div>
+
+                <% } else { %>
+                    <div class="col-sm-9 border">
+                        <div class="mb-3">
+                            <div class="p-0">
+                                <h5 class="card-title">
+                                    No Collections
+                                </h5>
+                                <% if (pageUser===user) { %>
+                                    <a href="/profile/<%= pageUser %>/collection" class="btn btn-primary">Create
+                                        Collection</a>
+                                    <% } %>
+                            </div>
+                        </div>
+                    </div>
+                    <% } %>
+        </div>
+
+        <% if (pageUser===user) { %>
+            <div class="content-container mx-5 mt-5 row">
+                <div class="col-sm-5 border">
+                    <div class="mb-3">
+                        <div class="p-0">
+                            <h5 class="card-title">
+                                Settings
+                            </h5>
+                            <p class="card-text">With supporting text below as a natural lead-in to additional
+                                content.</p>
+                            <a href="/profile/<%= pageUser %>/settings" class="btn btn-primary">Settings</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <% } %>
+
+</body>
